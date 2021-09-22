@@ -3,4 +3,4 @@ This is the repository for the paper "Providing Humanitarian Relief Support thro
 
 
 # Schemas
-![Expert Knowledge Graph Schema](./figures/schema_dr.pdf)
+![Expert Knowledge Graph Schema](./figures/schema_dr.png)
