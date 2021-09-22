@@ -12,7 +12,7 @@ This is the repository for the paper "Providing Humanitarian Relief Support thro
 ![Instance Data of an event](./figures/hazard.png)
 
 ## Expert View
-![Instance Data of an expert](./figures/Expert.png)
+![Instance Data of an expert](./figures/Expert.jpg)
 
 # Follow-your-Nose Search
 ![Follow-your-Nose](./figures/follow-your-nose.png)
