@@ -4,3 +4,7 @@ This is the repository for the paper "Providing Humanitarian Relief Support thro
 
 # Schemas
 ![Expert Knowledge Graph Schema](./figures/schema_dr.png)
+
+# Expert System Overview
+![Expert System Overview](./figures/expert_system_overview.png)
+
