@@ -36,10 +36,29 @@ This is the repository for the paper "Providing Humanitarian Relief Support thro
 ![Expert Similarity](./figures/dr_similarity.png)
 
 # Competency Questions <a name='query'></a>
-## Query one [need a sentence in natual language]
+
+endpoint: http://stko-roy.geog.ucsb.edu:7202/sparql
+
+repository: KnowWhereGraph-V1
+
+## Query One
+“Who has expertise related to diseases in the Sahel region?”
+
 ![Query](./figures/query_example.png)
 
-
-
-
-
+```SPARQL
+PREFIX kwgr: <http://stko-roy.geog.ucsb.edu/lod/resource/>
+PREFIX kwg-ont: <http://stko-roy.geog.ucsb.edu/lod/ontology/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?expert_fullName ?title ?affiliation ?expertise_topic
+where { 
+    ?expert a kwg-ont:Expert ;
+            kwg-ont:fullName ?expert_fullName ;
+            kwg-ont:hasTitle/rdfs:label ?title;
+            kwg-ont:hasAffiliation/rdfs:label ?affiliation;
+            kwg-ont:hasExpertise ?expertise.
+    ?expertise kwg-ont:hasTopic/rdfs:label ?expertise_topic.
+    ?expertise kwg-ont:scopedBy/kwg-ont:hasSpatialScope kwgr:Earth.North_America.USA.5_1 .
+    filter(regex(?expertise_topic, "disease", "i"))
+}
+'''
