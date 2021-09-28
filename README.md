@@ -41,10 +41,12 @@ endpoint: http://stko-roy.geog.ucsb.edu:7202/sparql
 
 repository: KnowWhereGraph-V1
 
-## Query One
-“Who has expertise related to diseases in the Sahel region?”
+interface:
 
 ![Query](./figures/query_example.png)
+
+## Query One
+“Who has expertise related to diseases in the Sahel region?”
 
 ```SPARQL
 PREFIX kwgr: <http://stko-roy.geog.ucsb.edu/lod/resource/>
@@ -61,4 +63,18 @@ where {
     ?expertise kwg-ont:scopedBy/kwg-ont:hasSpatialScope kwgr:Earth.North_America.USA.5_1 .
     filter(regex(?expertise_topic, "disease", "i"))
 }
-'''
+```
+
+## Query Two
+“Show me all Experts in Hurricane Events.”
+
+```SPARQL
+  PREFIX kwgr: <http://stko-roy.geog.ucsb.edu/lod/resource/>
+  PREFIX kwg-ont: <http://stko-roy.geog.ucsb.edu/lod/ontology/>
+  PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+ 
+ select ?expert_name where {
+      ?expert kwg-ont:hasExpertise kwgr:topic.hurricanes ;  
+        rdfs:label ?expert_name . 
+} 
+```
